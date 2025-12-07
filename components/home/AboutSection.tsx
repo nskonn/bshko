@@ -2,75 +2,82 @@ import React from 'react';
 import { MonitorPlay, UserCheck, CalendarClock, Library } from 'lucide-react';
 
 const AboutSection = () => {
+  const features = [
+    { 
+      icon: <MonitorPlay />, 
+      title: "Онлайн-обучение", 
+      desc: "Смотрите лекции в прямом эфире или в записи в удобное время."
+    },
+    { 
+      icon: <UserCheck />, 
+      title: "Опытные наставники", 
+      desc: "Преподаватели — действующие служители с многолетним опытом."
+    },
+    { 
+      icon: <Library />, 
+      title: "Системный подход", 
+      desc: "Программа охватывает все ключевые дисциплины и богословие."
+    },
+    { 
+      icon: <CalendarClock />, 
+      title: "Удобный график", 
+      desc: "Занятия проходят в вечернее время один раз в неделю."
+    },
+  ];
+
   return (
-    <section className="py-24 bg-white" id="about">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+    <section className="py-24 bg-white relative overflow-hidden" id="about">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 pointer-events-none bg-grid-pattern bg-[length:4rem_4rem]"></div>
 
-          {/* Left Column: Title & Text */}
-          <div className="lg:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-heading leading-tight">
-              Школа БШКО
-            </h2>
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        
+        {/* Section Header - Above content columns */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-[3rem] font-bold text-slate-900 font-heading leading-tight">
+            Школа БШКО
+          </h2>
+        </div>
 
-            <div className="prose prose-lg text-slate-600 mb-8">
-              <p className="mb-6 leading-relaxed text-lg">
-                Онлайн-школа проповедников Кавказского объединения МСЦ ЕХБ — это образовательная платформа для тех, кто стремится глубже познавать Писание и эффективнее служить в церкви.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+          {/* Left Column: Narrative (Spans 5 cols) */}
+          <div className="lg:col-span-5 flex flex-col h-full">
+            <div className="prose prose-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="mb-6">
+                Онлайн-школа проповедников Кавказского объединения МСЦ ЕХБ — это образовательная платформа для тех, кто стремится глубже познавать Писание.
               </p>
-              <p className="mb-8 leading-relaxed">
-                Школа была образована в 2018 году. За это время мы прошли путь от локальных семинаров до полноценной системы дистанционного образования, объединяющей студентов из разных стран.
+              <p>
+                Школа была образована в 2018 году. За это время мы прошли путь от локальных семинаров до полноценной системы дистанционного образования.
               </p>
-              
-              <div className="pl-6 border-l-4 border-amber-500 italic text-slate-800 bg-amber-50/30 py-6 pr-6 rounded-r-2xl mb-8 relative">
-                 <span className="text-4xl text-amber-200 absolute -top-4 left-2">"</span>
-                 <p className="relative z-10 font-medium">
-                   Наша миссия — помочь проповедникам освоить необходимые навыки и получить системные знания для того, чтобы верно и дерзновенно проповедовать Слово Божье в современном мире.
-                 </p>
-              </div>
+            </div>
+            
+            {/* Mission Block */}
+            <div className="mt-auto pt-8 border-t border-slate-100">
+               <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Наша миссия</h4>
+               <p className="text-slate-800 italic font-medium text-lg leading-relaxed border-l-2 border-brand pl-4">
+                 "Помочь проповедникам освоить необходимые навыки для того, чтобы верно и дерзновенно проповедовать Слово Божье."
+               </p>
             </div>
           </div>
 
-          {/* Right Column: Feature Cards Grid */}
-          <div className="lg:w-1/2 w-full">
+          {/* Spacer Column */}
+          <div className="hidden lg:block lg:col-span-1"></div>
+
+          {/* Right Column: Features Grid (Spans 6 cols) */}
+          <div className="lg:col-span-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                { 
-                  icon: <MonitorPlay className="w-6 h-6" />, 
-                  color: "text-blue-600",
-                  bg: "bg-blue-50",
-                  title: "Онлайн-обучение", 
-                  desc: "Гибкий график занятий. Смотрите лекции в прямом эфире или в записи в удобное время." 
-                },
-                { 
-                  icon: <UserCheck className="w-6 h-6" />, 
-                  color: "text-emerald-600",
-                  bg: "bg-emerald-50",
-                  title: "Опытные наставники", 
-                  desc: "Преподаватели — действующие служители с многолетним опытом проповеди и душепопечения." 
-                },
-                { 
-                  icon: <Library className="w-6 h-6" />, 
-                  color: "text-amber-600",
-                  bg: "bg-amber-50",
-                  title: "Системный подход", 
-                  desc: "Программа охватывает все ключевые дисциплины: от герменевтики до церковной истории." 
-                },
-                { 
-                  icon: <CalendarClock className="w-6 h-6" />, 
-                  color: "text-indigo-600",
-                  bg: "bg-indigo-50",
-                  title: "Удобный график занятий", 
-                  desc: "Занятия проходят в вечернее время один раз в неделю, что позволяет совмещать учебу с работой." 
-                },
-              ].map((feature, idx) => (
-                <div key={idx} className="p-6 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
-                  <div className={`w-12 h-12 rounded-xl ${feature.bg} ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {feature.icon}
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-2 font-heading">{feature.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {feature.desc}
-                  </p>
+              {features.map((feature, idx) => (
+                <div key={idx} className="bg-white rounded-2xl p-7 border border-slate-100 hover:border-brand-200 hover:shadow-xl hover:shadow-brand/5 transition-all duration-300 group">
+                    <div className="flex justify-between items-start mb-4 gap-4">
+                       <h3 className="text-xl font-bold text-slate-900 font-heading leading-tight pt-1">{feature.title}</h3>
+                       <div className="text-brand group-hover:text-brand-600 transition-colors flex-shrink-0 transform group-hover:scale-110 duration-300">
+                         {React.cloneElement(feature.icon as React.ReactElement<any>, { className: "w-8 h-8 stroke-[1.5]" })}
+                       </div>
+                    </div>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {feature.desc}
+                    </p>
                 </div>
               ))}
             </div>

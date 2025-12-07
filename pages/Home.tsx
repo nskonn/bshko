@@ -6,7 +6,6 @@ import AboutSection from '../components/home/AboutSection';
 import StatsSection from '../components/home/StatsSection';
 import DirectionsSection from '../components/home/DirectionsSection';
 import AdmissionInfoSection from '../components/home/AdmissionInfoSection';
-import BlogSection from '../components/home/BlogSection';
 import TeachersSection from '../components/home/TeachersSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import RegistrationSection from '../components/home/RegistrationSection';
@@ -47,9 +46,6 @@ const Home = () => {
 
       {/* Info for Applicants */}
       <AdmissionInfoSection />
-
-      {/* Featured Content / Blog */}
-      <BlogSection />
 
       {/* Teachers Section */}
       <TeachersSection />

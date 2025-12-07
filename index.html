@@ -5,47 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>БШКО</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
+              heading: ['Montserrat', 'sans-serif'],
             },
             colors: {
-              // Brand Orange Palette (approximate matches to the button in photo)
-              primary: {
-                50: '#fffbeb',
-                100: '#fef3c7',
-                200: '#fde68a',
-                300: '#fcd34d',
-                400: '#fbbf24',
-                500: '#f59e0b', // Base Orange
-                600: '#d97706',
-                700: '#b45309',
-                800: '#92400e',
-                900: '#78350f',
-                950: '#451a03',
+              brand: {
+                DEFAULT: '#fd9a00',
+                50: '#fff7e6',
+                100: '#ffedcc',
+                200: '#ffd480',
+                300: '#ffbb33',
+                400: '#ffa200',
+                500: '#fd9a00', // Main Brand Color
+                600: '#e68a00',
+                700: '#cc7a00',
+                800: '#a36100',
+                900: '#7a4900',
               },
-              // Brand Dark Blue (for backgrounds)
               dark: {
-                900: '#0F172A',
-                950: '#020617',
+                900: '#0F172A', // Slate 900
+                800: '#1E293B', // Slate 800
               }
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px)",
+              'dot-pattern': "radial-gradient(rgba(15, 23, 42, 0.1) 1px, transparent 1px)",
             }
           }
         }
       }
     </script>
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      .hero-gradient {
-        background: linear-gradient(90deg, #0F172A 0%, rgba(15, 23, 42, 0.85) 50%, rgba(15, 23, 42, 0.4) 100%);
-      }
-    </style>
   <script type="importmap">
 {
   "imports": {
@@ -59,7 +54,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-primary-200 selection:text-primary-900">
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-100 selection:text-brand-900">
     <div id="root"></div>
   </body>
 </html>

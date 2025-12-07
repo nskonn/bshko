@@ -48,38 +48,40 @@ const TestimonialsSection = () => {
     <>
       <section className="py-24 bg-white" id="testimonials">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <span className="text-amber-600 font-bold uppercase tracking-wider text-sm mb-3 block">Отзывы</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 font-heading">Что говорят студенты</h2>
-          </div>
+          
+          <div className="grid grid-cols-12 gap-y-12">
+            <div className="col-span-12 text-center">
+              <h2 className="text-3xl md:text-[3rem] font-bold text-slate-900 mb-4 font-heading leading-tight">Отзывы</h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-slate-50 rounded-[2rem] p-8 hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" />
-                  <div>
-                    <h4 className="font-bold text-slate-900 font-heading">{testimonial.name}</h4>
-                    <p className="text-xs text-amber-600 font-bold uppercase tracking-wider">{testimonial.role}</p>
+            <div className="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="bg-slate-50 rounded-[2rem] p-8 hover:shadow-lg transition-all duration-300 border border-slate-100 flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-6">
+                    <img src={testimonial.avatar} alt={testimonial.name} className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" />
+                    <div>
+                      <h4 className="font-bold text-slate-900 font-heading text-lg">{testimonial.name}</h4>
+                      <p className="text-xs text-amber-600 font-bold uppercase tracking-wider">{testimonial.role}</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="relative flex-grow">
-                  <Quote className="w-8 h-8 text-amber-200 absolute -top-2 -left-2 transform -scale-x-100 opacity-50" />
-                  <p className="text-slate-600 leading-relaxed text-sm relative z-10 pt-4 line-clamp-4">
-                    {testimonial.text}
-                  </p>
-                </div>
+                  <div className="relative flex-grow">
+                    <Quote className="w-8 h-8 text-amber-200 absolute -top-2 -left-2 transform -scale-x-100 opacity-50" />
+                    <p className="text-slate-600 leading-relaxed text-base relative z-10 pt-4 line-clamp-4">
+                      {testimonial.text}
+                    </p>
+                  </div>
 
-                <button
-                  onClick={() => setSelectedTestimonial(testimonial)}
-                  className="mt-6 text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors inline-flex items-center gap-1 group self-start"
-                >
-                  Читать полностью
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            ))}
+                  <button
+                    onClick={() => setSelectedTestimonial(testimonial)}
+                    className="mt-6 text-base font-bold text-slate-900 hover:text-amber-600 transition-colors inline-flex items-center gap-1 group self-start"
+                  >
+                    Читать полностью
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -102,7 +104,7 @@ const TestimonialsSection = () => {
             </div>
             <div className="relative">
               <Quote className="w-10 h-10 text-amber-100 absolute -top-4 -left-4 transform -scale-x-100" />
-              <p className="text-slate-600 leading-loose relative z-10">
+              <p className="text-slate-600 leading-loose relative z-10 text-lg">
                 {selectedTestimonial.text}
               </p>
             </div>

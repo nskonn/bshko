@@ -38,7 +38,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
         <div className="p-8 md:p-10">
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading mb-3">Заполните анкету</h2>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-base leading-relaxed">
               Пожалуйста, заполните все обязательные поля, отмеченные звездочкой (*)
             </p>
           </div>
@@ -46,9 +46,9 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
           <form className="space-y-5">
             {/* Course Selection */}
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">В каком качестве вы будете поступать?</label>
+              <label className="block text-base font-bold text-slate-700 mb-2">В каком качестве вы будете поступать?</label>
               <div className="relative">
-                <select defaultValue="Студент (Полный курс)" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium">
+                <select defaultValue="Студент (Полный курс)" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-base">
                   <option>Студент (Полный курс)</option>
                   <option>Вольнослушатель</option>
                   <option>Кандидат в Клуб проповедников</option>
@@ -61,16 +61,16 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
             <div className="space-y-4">
               <div className="relative group">
                 <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" />
-                <input type="text" placeholder="Фамилия *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+                <input type="text" placeholder="Фамилия *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="relative group">
                   <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" />
-                  <input type="text" placeholder="Имя *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+                  <input type="text" placeholder="Имя *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
                 </div>
                 <div className="relative group">
                   <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" />
-                  <input type="text" placeholder="Отчество" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+                  <input type="text" placeholder="Отчество" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
                 </div>
               </div>
             </div>
@@ -79,18 +79,18 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative group">
                 <Phone className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" />
-                <input type="tel" placeholder="+7 (999) 000-00-00 *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+                <input type="tel" placeholder="+7 (999) 000-00-00 *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
               </div>
               <div className="relative group">
                 <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" />
-                <input type="email" placeholder="Email *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+                <input type="email" placeholder="Email *" className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
               </div>
             </div>
 
             {/* Connection Channel & Note */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <select defaultValue="" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium">
+                <select defaultValue="" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-base">
                   <option value="" disabled>Канал связи *</option>
                   <option>Telegram</option>
                   <option>WhatsApp</option>
@@ -99,13 +99,13 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
                 </select>
                 <ChevronRight className="w-5 h-5 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 rotate-90 pointer-events-none" />
               </div>
-              <input type="text" placeholder="Примечание (по желанию)" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800" />
+              <input type="text" placeholder="Примечание (по желанию)" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
             </div>
 
             {/* Info Block */}
             <div className="bg-blue-50/70 rounded-xl p-5 border border-blue-100 flex gap-4 items-start">
               <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">i</div>
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-base text-slate-600 leading-relaxed">
                 После отправки анкеты вы будете переадресованы на наш Telegram канал. Подпишитесь, чтобы быть в курсе всех событий!
               </p>
             </div>
@@ -116,7 +116,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
               <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <p className="text-[11px] text-slate-400 text-center mt-6 leading-tight max-w-sm mx-auto">
+            <p className="text-xs text-slate-400 text-center mt-6 leading-tight max-w-sm mx-auto">
               Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и обработки персональных данных.
             </p>
           </form>
