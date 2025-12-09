@@ -106,7 +106,7 @@ const Blog = () => {
                 <input 
                   type="text" 
                   placeholder="Поиск по статьям..." 
-                  className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all font-medium text-slate-800"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all font-medium text-slate-800 text-base"
                 />
                 <Search className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
               </div>
@@ -119,7 +119,7 @@ const Blog = () => {
                     <button
                       key={cat}
                       onClick={() => setActiveCategory(cat)}
-                      className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center justify-between group ${
+                      className={`w-full text-left px-4 py-2.5 rounded-lg text-base font-medium transition-all flex items-center justify-between group ${
                         activeCategory === cat 
                           ? 'bg-amber-50 text-amber-700' 
                           : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
@@ -135,9 +135,9 @@ const Blog = () => {
               {/* Subscribe Widget */}
               <div className="bg-slate-900 rounded-2xl p-6 text-white text-center">
                 <h3 className="font-bold font-heading mb-2">Подпишитесь</h3>
-                <p className="text-sm text-slate-400 mb-4">Получайте новые статьи на почту</p>
-                <input type="email" placeholder="Email" className="w-full bg-slate-800 border-none rounded-lg px-4 py-2.5 text-sm mb-3 focus:ring-2 focus:ring-amber-500" />
-                <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-lg text-sm transition-colors">
+                <p className="text-base text-slate-400 mb-4">Получайте новые статьи на почту</p>
+                <input type="email" placeholder="Email" className="w-full bg-slate-800 border-none rounded-lg px-4 py-2.5 text-base mb-3 focus:ring-2 focus:ring-amber-500" />
+                <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-lg text-base transition-colors">
                   Подписаться
                 </button>
               </div>
@@ -161,7 +161,7 @@ const Blog = () => {
 
                     {/* Content */}
                     <div className="p-8 flex flex-col flex-grow">
-                      <div className="flex items-center gap-3 text-sm text-slate-400 mb-4 font-medium">
+                      <div className="flex items-center gap-3 text-base text-slate-400 mb-4 font-medium">
                         <Calendar className="w-4 h-4 text-amber-500" />
                         <span>{post.date}</span>
                         <span className="w-1 h-1 rounded-full bg-slate-300"></span>
@@ -171,12 +171,12 @@ const Blog = () => {
                       <h3 className="text-xl font-bold text-slate-900 mb-3 font-heading group-hover:text-amber-600 transition-colors leading-tight">
                         {post.title}
                       </h3>
-                      <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3">
+                      <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3 text-base">
                         {post.excerpt}
                       </p>
 
                       <div className="mt-auto pt-6 border-t border-slate-50">
-                        <span className="text-sm font-bold text-slate-900 group-hover:text-amber-600 transition-colors inline-flex items-center gap-2">
+                        <span className="text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors inline-flex items-center gap-2">
                           Читать далее
                           <ChevronRight className="w-4 h-4" />
                         </span>
