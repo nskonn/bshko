@@ -7,7 +7,7 @@ const StatsSection = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="bg-white rounded-2xl shadow-xl shadow-slate-900/10 p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100 border border-slate-100">
           {[
-            { number: '10+', label: 'Лет опыта обучения', icon: <Calendar className="w-5 h-5 text-brand" /> },
+            { number: '8+', label: 'Лет опыта обучения', icon: <Calendar className="w-5 h-5 text-brand" /> },
             { number: '500+', label: 'Выпускников', icon: <GraduationCap className="w-5 h-5 text-brand" /> },
             { number: '24/7', label: 'Доступ к материалам', icon: <BookOpen className="w-5 h-5 text-brand" /> },
           ].map((stat, idx) => (

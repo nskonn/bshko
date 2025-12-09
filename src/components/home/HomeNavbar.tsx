@@ -41,8 +41,15 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isSolidHeader ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <Link to="/" className={`text-xl font-bold tracking-tight font-heading transition-colors duration-300 ${isSolidHeader ? 'text-slate-900' : 'text-white'}`}>
-            БШКО
+          <Link to="/" className={`flex items-center gap-3 transition-opacity duration-300 hover:opacity-80`}>
+            <img 
+              src="/assets/img/bshko-logo_400-removebg-preview.png"
+              alt="Логотип БШКО" 
+              className="h-10 w-auto"
+            />
+            <span className={`text-xl font-bold tracking-tight font-heading transition-colors duration-300 ${isSolidHeader ? 'text-slate-900' : 'text-white'}`}>
+              БШКО
+            </span>
           </Link>
         </div>
 

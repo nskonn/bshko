@@ -11,6 +11,11 @@ const HomeFooter = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
+              <img
+                src="/assets/img/bshko-logo_400-removebg-preview.png"
+                alt="Логотип БШКО"
+                className="h-12 w-auto"
+              />
               <span className="text-xl font-bold text-white font-heading">БШКО</span>
             </div>
             <p className="text-base leading-relaxed mb-8 text-slate-400">
