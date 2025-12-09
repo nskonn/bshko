@@ -1,12 +1,12 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 
 // ScrollToTop component to reset scroll on route change
 const ScrollToTop = () => {
-    const { pathname } = React.useMemo(() => window.location, []);
+    const { pathname } = useLocation();
   
     React.useEffect(() => {
       window.scrollTo(0, 0);

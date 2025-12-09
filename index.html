@@ -3,58 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>БШКО</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#fd9a00" />
+    
+    <!-- SEO & Meta Tags -->
+    <title>БШКО - Современный образовательный портал</title>
+    <meta name="description" content="Официальный сайт учебного заведения БШКО. Удобная навигация, информация о поступлении, преподавателях и форма подачи заявлений." />
+    <meta name="keywords" content="образование, школа, курсы, обучение, БШКО, поступление" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bshko.ru/" />
+    <meta property="og:title" content="БШКО - Современный образовательный портал" />
+    <meta property="og:description" content="Узнайте больше о программах обучения, преподавателях и жизни учебного заведения БШКО." />
+    <meta property="og:image" content="https://bshko.ru/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="БШКО - Современный образовательный портал" />
+    <meta property="twitter:description" content="Узнайте больше о программах обучения, преподавателях и жизни учебного заведения БШКО." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              heading: ['Montserrat', 'sans-serif'],
-            },
-            colors: {
-              brand: {
-                DEFAULT: '#fd9a00',
-                50: '#fff7e6',
-                100: '#ffedcc',
-                200: '#ffd480',
-                300: '#ffbb33',
-                400: '#ffa200',
-                500: '#fd9a00', // Main Brand Color
-                600: '#e68a00',
-                700: '#cc7a00',
-                800: '#a36100',
-                900: '#7a4900',
-              },
-              dark: {
-                900: '#0F172A', // Slate 900
-                800: '#1E293B', // Slate 800
-              }
-            },
-            backgroundImage: {
-              'grid-pattern': "linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px)",
-              'dot-pattern': "radial-gradient(rgba(15, 23, 42, 0.1) 1px, transparent 1px)",
-            }
-          }
-        }
-      }
-    </script>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.68.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
-  }
-}
-</script>
-</head>
+  </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-brand-100 selection:text-brand-900">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
