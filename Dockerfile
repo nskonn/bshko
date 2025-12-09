@@ -1,0 +1,16 @@
+# 1. Билдим React (или другой JS фреймворк)
+FROM node:20 AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# 2. Nginx для отдачи статики
+FROM nginx:1.27-alpine
+# ВАЖНО: Копируем из папки build (как вы просили), а не dist
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
