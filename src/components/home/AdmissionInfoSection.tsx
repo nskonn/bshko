@@ -5,22 +5,9 @@ import { ScrollText, ClipboardCheck, Laptop, ArrowRight, Check } from 'lucide-re
 const AdmissionInfoSection = () => {
   const cards = [
     {
-      title: "Программа",
-      subtitle: "Ключевые предметы",
-      icon: <ScrollText className="w-6 h-6" />,
-      desc: "Глубокое погружение в богословские дисциплины для формирования целостного христианского мировоззрения.",
-      listItems: [
-        "Библиология: история и сущность Библии",
-        "Герменевтика: искусство толкования",
-        "Гомилетика: построение проповеди",
-        "Экзегетика: практика изучения книг",
-        "Догматика: основы вероучения"
-      ]
-    },
-    {
       title: "Поступление",
       subtitle: "Требования",
-      icon: <ClipboardCheck className="w-6 h-6" />,
+      icon: <ClipboardCheck className="w-6 h-6 text-brand/50" />,
       desc: "Простые и понятные условия для всех желающих получить духовное образование.",
       listItems: [
         "Членство в церкви ЕХБ",
@@ -31,9 +18,22 @@ const AdmissionInfoSection = () => {
       ]
     },
     {
+      title: "Программа",
+      subtitle: "Ключевые предметы",
+      icon: <ScrollText className="w-6 h-6 text-brand/50" />,
+      desc: "Глубокое погружение в богословские дисциплины для формирования целостного христианского мировоззрения.",
+      listItems: [
+        "Библиология: история и сущность Библии",
+        "Герменевтика: искусство толкования",
+        "Гомилетика: построение проповеди",
+        "Экзегетика: практика изучения книг",
+        "Догматика: основы вероучения"
+      ]
+    },
+    {
       title: "Процесс",
       subtitle: "Формат занятий",
-      icon: <Laptop className="w-6 h-6" />,
+      icon: <Laptop className="w-6 h-6 text-brand/50" />,
       desc: "Гибкий график обучения, позволяющий совмещать учебу с работой и служением.",
       listItems: [
         "Срок обучения: 2 или 3 года",
@@ -62,17 +62,17 @@ const AdmissionInfoSection = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="col-span-12 grid grid-cols-1 xl:grid-cols-3 gap-8">
             {cards.map((card, idx) => (
-              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-slate-200 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 hover:border-brand-200 transition-all duration-300 group hover:-translate-y-2 flex flex-col h-full relative`}>
+              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-brand/50 shadow-sm hover:shadow-2xl hover:shadow-slate-200/50  transition-all duration-300 group flex flex-col h-full relative`}>
                 
                 {/* Header: Text Left, Icon Right */}
                 <div className="flex justify-between items-start gap-4 mb-6">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-1 font-heading leading-tight">{card.title}</h3>
+                    <h3 className="text-3xl font-bold text-slate-900 mb-1 font-heading leading-tight">{card.title}</h3>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{card.subtitle}</p>
                   </div>
-                  <div className={`w-14 h-14 rounded-full border border-slate-100 bg-slate-50 text-slate-600 group-hover:text-brand group-hover:border-brand/20 flex items-center justify-center flex-shrink-0 transition-colors duration-300 shadow-sm`}>
+                  <div className={`w-14 h-14 rounded-full border border-brand/50  bg-slate-50 text-slate-600 flex items-center justify-center flex-shrink-0 transition-colors duration-300 shadow-sm`}>
                     {card.icon}
                   </div>
                 </div>

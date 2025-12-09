@@ -6,7 +6,11 @@ const TeachersSection = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 350 + 24; // Card width (350px) + gap (24px)
+      const card = scrollContainerRef.current.firstElementChild as HTMLElement;
+      const cardWidth = card ? card.offsetWidth : 350;
+      const gap = 24; // gap-6
+      const scrollAmount = cardWidth + gap;
+
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -138,7 +142,7 @@ const TeachersSection = () => {
               {teachers.map((teacher, index) => (
                 <div 
                   key={index} 
-                  className="flex-shrink-0 w-[350px] snap-center"
+                  className="flex-shrink-0 w-full md:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] xl:w-[calc((100%-72px)/4)] snap-start"
                 >
                   <TeacherCard teacher={teacher} />
                 </div>

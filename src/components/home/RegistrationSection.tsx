@@ -98,7 +98,7 @@ const RegistrationSection = () => {
           {/* Left Side: Visual & Info (5 Columns) */}
           <div className="lg:col-span-5 bg-slate-900 relative p-10 lg:p-14 flex flex-col justify-between text-white overflow-hidden min-h-[500px] rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem]">
             <div className="absolute inset-0 z-0">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Горы" className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" />
+              <img src="/assets/registration/registration-img.png" alt="Горы" className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/40"></div>
             </div>
 

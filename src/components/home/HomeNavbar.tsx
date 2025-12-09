@@ -34,7 +34,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
     { name: 'Клуб проповедников', href: '/preachers-club', type: 'route' },
     { name: 'Книжный клуб', href: '/book-club', type: 'route' },
     { name: 'Блог', href: '/blog', type: 'route' },
-    { name: 'Контакты', href: '/#contacts', type: 'route' },
+    { name: 'Контакты', href: '/#contacts', type: 'route', className: 'lg:hidden' },
   ];
 
   return (
@@ -54,13 +54,13 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
              link.type === 'route' ? (
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-md font-medium hover:text-amber-500 transition-colors ${isSolidHeader ? 'text-slate-600' : 'text-slate-300'} ${location.pathname === link.href ? 'text-amber-500' : ''}`}
+                className={`text-md font-medium hover:text-amber-500 transition-colors ${isSolidHeader ? 'text-slate-600' : 'text-slate-300'} ${location.pathname === link.href ? 'text-amber-500' : ''} ${link.className || ''}`}
               >
                 {link.name}
               </Link>
@@ -68,7 +68,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-md font-medium hover:text-amber-500 transition-colors ${isSolidHeader ? 'text-slate-600' : 'text-slate-300'}`}
+                className={`text-md font-medium hover:text-amber-500 transition-colors ${isSolidHeader ? 'text-slate-600' : 'text-slate-300'} ${link.className || ''}`}
               >
                 {link.name}
               </a>
@@ -84,7 +84,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2"
+          className="lg:hidden p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -97,7 +97,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
 
       {/* Mobile Nav Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-xl py-4 px-4 flex flex-col gap-4 animate-in slide-in-from-top-5 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-xl py-4 px-4 flex flex-col gap-4 animate-in slide-in-from-top-5 max-h-[80vh] overflow-y-auto">
           {navLinks.map((link) => (
              link.type === 'route' ? (
               <Link

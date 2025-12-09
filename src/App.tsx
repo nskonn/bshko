@@ -6,6 +6,7 @@ import Blog from './pages/Blog';
 import Applicants from './pages/Applicants';
 import PreachersClub from './pages/PreachersClub';
 import BookClub from './pages/BookClub';
+import BackToTopButton from './shared/hooks/BackToTopButton.tsx';
 
 // ScrollToTop component to reset scroll on route change or scroll to hash
 const ScrollToTop = () => {
@@ -36,6 +37,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
+      <BackToTopButton />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

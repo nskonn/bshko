@@ -19,7 +19,7 @@ const DirectionsSection = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="col-span-12 grid grid-cols-1 xl:grid-cols-3 gap-8">
             {[
               {
                 title: 'Библейская школа',
@@ -43,16 +43,16 @@ const DirectionsSection = () => {
                 features: ['1 книга в месяц', 'Модерируемые встречи', 'Гостевые лекторы', 'Подборка литературы'],
               },
             ].map((card, idx) => (
-              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-slate-100 border-t-4 border-t-brand shadow-sm hover:shadow-2xl hover:shadow-brand/10 transition-all duration-300 group hover:-translate-y-2 flex flex-col h-full relative overflow-hidden`}>
+              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-brand/50 shadow-sm hover:shadow-2xl hover:shadow-brand/10 transition-all duration-300 group hover:-translate-y-2 flex flex-col h-full relative overflow-hidden`}>
 
                 {/* Header Row: Text on Left, Icon on Right */}
                 <div className="flex justify-between items-start gap-4 mb-6">
                   <div className="flex-1 pr-2">
-                    <h3 className={`text-2xl font-bold mb-1 font-heading text-slate-900 leading-tight`}>{card.title}</h3>
+                    <h3 className={`text-3xl font-bold mb-1 font-heading text-slate-900 leading-tight`}>{card.title}</h3>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{card.subtitle}</p>
                   </div>
                   
-                  <div className={`w-16 h-16 rounded-full bg-transparent border-2 border-brand text-brand flex items-center justify-center flex-shrink-0 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm`}>
+                  <div className={`w-16 h-16 rounded-full bg-transparent border-2 border-brand text-brand opacity-70 flex items-center justify-center flex-shrink-0 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm`}>
                     {card.icon}
                   </div>
                 </div>

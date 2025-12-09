@@ -17,7 +17,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] font-sans text-slate-800 selection:bg-amber-100 selection:text-amber-900">
+    <div className="min-h-screen bg-[#FDFBF7] font-sans text-slate-800 selection:bg-amber-100 selection:text-amber-900 overflow-x-hidden">
       {/* Import Fonts */}
       <style dangerouslySetInnerHTML={{__html: `
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');

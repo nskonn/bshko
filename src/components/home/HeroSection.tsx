@@ -8,7 +8,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onOpenModal }) => {
   return (
-    <header className="relative bg-[#0B1120] overflow-hidden flex flex-col justify-center min-h-screen md:min-h-[600px] md:h-[88vh] md:max-h-[1000px] pt-32 pb-24 md:py-0">
+    <header className="relative bg-[#0B1120] overflow-hidden flex flex-col justify-center min-h-screen md:min-h-[850px] md:h-[99vh] md:max-h-[1200px] pt-32 pb-24 md:py-0">
       {/* Background Pattern/Image Placeholder */}
       <div className="absolute inset-0">
         <img
