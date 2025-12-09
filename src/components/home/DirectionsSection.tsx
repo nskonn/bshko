@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Mic2, BookOpen, Check, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const DirectionsSection = () => {
   return (
@@ -27,6 +28,8 @@ const DirectionsSection = () => {
                 desc: 'Основной курс для тех, кто хочет получить системные знания Библии. Включает богословие, историю и герменевтику.',
                 icon: <GraduationCap className="w-8 h-8" />,
                 features: ['Срок обучения: 2 года', 'Диплом по окончании', 'Личный куратор', 'Доступ к библиотеке'],
+                link: '/applicants',
+                buttonText: 'Абитуриентам'
               },
               {
                 title: 'Клуб проповедников',
@@ -34,6 +37,8 @@ const DirectionsSection = () => {
                 desc: 'Закрытое сообщество для действующих служителей. Разбор проповедей, работа над ошибками и обмен опытом.',
                 icon: <Mic2 className="w-8 h-8" />,
                 features: ['Еженедельные встречи', 'Практика гомилетики', 'Разбор текстов', 'Мастер-классы'],
+                link: '/preachers-club',
+                buttonText: 'Узнать больше'
               },
               {
                 title: 'Книжный клуб',
@@ -41,18 +46,20 @@ const DirectionsSection = () => {
                 desc: 'Совместное чтение классической и современной христианской литературы. Глубокие обсуждения и новые смыслы.',
                 icon: <BookOpen className="w-8 h-8" />,
                 features: ['1 книга в месяц', 'Модерируемые встречи', 'Гостевые лекторы', 'Подборка литературы'],
+                link: '/book-club',
+                buttonText: 'Присоединиться'
               },
             ].map((card, idx) => (
-              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-brand/50 shadow-sm hover:shadow-2xl hover:shadow-brand/10 transition-all duration-300 group hover:-translate-y-2 flex flex-col h-full relative overflow-hidden`}>
+              <div key={idx} className={`bg-white rounded-[2rem] p-8 border border-brand/50 shadow-sm hover:shadow-2xl hover:shadow-brand/10 group flex flex-col h-full relative overflow-hidden`}>
 
                 {/* Header Row: Text on Left, Icon on Right */}
                 <div className="flex justify-between items-start gap-4 mb-6">
                   <div className="flex-1 pr-2">
-                    <h3 className={`text-3xl font-bold mb-1 font-heading text-slate-900 leading-tight`}>{card.title}</h3>
+                    <h3 className={`text-3xl xl:text-2xl font-bold mb-1 font-heading text-slate-900 leading-tight`}>{card.title}</h3>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{card.subtitle}</p>
                   </div>
                   
-                  <div className={`w-16 h-16 rounded-full bg-transparent border-2 border-brand text-brand opacity-70 flex items-center justify-center flex-shrink-0 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm`}>
+                  <div className={`w-14 h-14 p-2 rounded-full bg-transparent border-2 border-brand text-brand opacity-70 flex items-center justify-center flex-shrink-0 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm`}>
                     {card.icon}
                   </div>
                 </div>
@@ -61,7 +68,7 @@ const DirectionsSection = () => {
                   {card.desc}
                 </p>
 
-                <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                <div className="bg-slate-50 rounded-xl p-5 border border-slate-100 mb-8">
                   <ul className="space-y-3">
                     {card.features.map((feature, i) => (
                       <li key={i} className="flex items-center text-base text-slate-700">
@@ -71,6 +78,14 @@ const DirectionsSection = () => {
                     ))}
                   </ul>
                 </div>
+
+                <Link 
+                  to={card.link}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-semibold hover:border-brand hover:text-brand hover:bg-brand/5 transition-all duration-300 group-hover:border-brand/30"
+                >
+                  {card.buttonText}
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </div>
             ))}
           </div>
