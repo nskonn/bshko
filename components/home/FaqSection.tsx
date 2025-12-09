@@ -56,7 +56,7 @@ const FaqSection = () => {
                     {faq.question}
                   </span>
                   <div className={`transition-transform duration-300 flex-shrink-0 ${openFaqIndex === index ? 'rotate-45' : ''}`}>
-                    <Plus className={`w-7 h-7 ${openFaqIndex === index ? 'text-brand' : 'text-slate-400'}`} />
+                    <Plus className="w-7 h-7 text-brand" />
                   </div>
                 </button>
 

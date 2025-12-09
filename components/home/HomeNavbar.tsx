@@ -30,10 +30,11 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({ onOpenModal, variant = 'home' }
   
   const navLinks = [
     { name: 'Главная', href: '/', type: 'route' },
-    { name: 'Абитуриенту', href: '/#admission-info', type: 'anchor' },
-    { name: 'Книжный клуб', href: '/#directions', type: 'anchor' },
-    { name: 'Контакты', href: '/#contacts', type: 'anchor' },
+    { name: 'Абитуриенту', href: '/applicants', type: 'route' },
+    { name: 'Клуб проповедников', href: '/preachers-club', type: 'route' },
+    { name: 'Книжный клуб', href: '/book-club', type: 'route' },
     { name: 'Блог', href: '/blog', type: 'route' },
+    { name: 'Контакты', href: '/#contacts', type: 'route' },
   ];
 
   return (

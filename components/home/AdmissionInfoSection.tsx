@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ScrollText, ClipboardCheck, Laptop, ArrowRight, Check } from 'lucide-react';
 
 const AdmissionInfoSection = () => {
@@ -46,7 +47,7 @@ const AdmissionInfoSection = () => {
 
   return (
     <section className="py-24 bg-white relative overflow-hidden" id="admission-info">
-      {/* Background Grid Pattern - Reused from About section */}
+      {/* Background Grid Pattern */}
       <div className="absolute inset-0 pointer-events-none bg-grid-pattern bg-[length:4rem_4rem]"></div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -54,7 +55,6 @@ const AdmissionInfoSection = () => {
           
           {/* Header */}
           <div className="col-span-12 lg:col-span-8 lg:col-start-3 text-center">
-            <span className="text-brand font-bold uppercase tracking-wider text-sm mb-3 block">Абитуриенту</span>
             <h2 className="text-3xl md:text-[3rem] font-bold text-slate-900 mb-6 font-heading leading-tight">Информация для поступающих</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
               Мы подготовили подробную информацию о процессе обучения, чтобы вы могли принять взвешенное решение и подготовиться к поступлению.
@@ -97,11 +97,10 @@ const AdmissionInfoSection = () => {
 
           {/* CTA Footer */}
           <div className="col-span-12 text-center">
-            <a href="#registration" className="inline-flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-900/30 group font-heading text-lg">
-              <span>Подать заявку на обучение</span>
+            <Link to="/applicants" className="inline-flex items-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-900/30 group font-heading text-lg">
+              <span>Подробнее</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <p className="mt-4 text-sm text-slate-500">Набор открыт до 1 сентября 2025 года</p>
+            </Link>
           </div>
 
         </div>

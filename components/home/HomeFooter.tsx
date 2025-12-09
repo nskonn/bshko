@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight, Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HomeFooter = () => {
   return (
@@ -21,10 +22,10 @@ const HomeFooter = () => {
           <div>
             <h4 className="text-white font-bold mb-6 font-heading text-lg">Навигация</h4>
             <ul className="space-y-4 text-base">
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> О школе</a></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Абитуриенту</a></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Преподаватели</a></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Вопросы и ответы</a></li>
+              <li><Link to="/#about" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> О школе</Link></li>
+              <li><Link to="/applicants" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Абитуриенту</Link></li>
+              <li><Link to="/#teachers" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Преподаватели</Link></li>
+              <li><Link to="/#faq" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Вопросы и ответы</Link></li>
             </ul>
           </div>
 
@@ -32,10 +33,10 @@ const HomeFooter = () => {
           <div>
             <h4 className="text-white font-bold mb-6 font-heading text-lg">Ресурсы</h4>
             <ul className="space-y-4 text-base">
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Книжный клуб</a></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Клуб проповедников</a></li>
+              <li><Link to="/book-club" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Книжный клуб</Link></li>
+              <li><Link to="/preachers-club" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Клуб проповедников</Link></li>
               <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Библиотека</a></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Блог</a></li>
+              <li><Link to="/blog" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Блог</Link></li>
             </ul>
           </div>
 

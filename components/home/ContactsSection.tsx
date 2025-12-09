@@ -37,7 +37,7 @@ const ContactsSection = () => {
                   <textarea placeholder="Ваш вопрос..." rows={4} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all resize-none"></textarea>
                 </div>
 
-                <button className="w-full bg-brand hover:bg-brand-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-brand/25 hover:shadow-brand/40">
+                <button className="w-full bg-[#1e293b] hover:bg-[#0f172a] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-slate-200 hover:shadow-xl">
                   Отправить сообщение
                 </button>
               </form>
