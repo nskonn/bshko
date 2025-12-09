@@ -8,8 +8,8 @@ RUN npm run build
 
 # 2. Nginx для отдачи статики
 FROM nginx:1.27-alpine
-# ВАЖНО: Копируем из папки build (как вы просили), а не dist
-COPY --from=build /app/build /usr/share/nginx/html
+# ВАЖНО: Копируем из папки dist
+COPY --from=dist /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
