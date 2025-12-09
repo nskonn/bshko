@@ -1,0 +1,10 @@
+name: bshko
+
+services:
+  app:
+    build: .
+    container_name: bshko_frontend # <--- Уникальное имя контейнера
+    restart: always
+    ports:
+      # Порт хоста изменен на 4002, чтобы не конфликтовать с webzella-project (4001)
+      - "127.0.0.1:4007:80"
