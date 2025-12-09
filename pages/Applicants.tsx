@@ -70,11 +70,11 @@ const Applicants = () => {
                   <h3 className="text-xl font-bold font-heading mb-4 flex items-center gap-2">
                     <span className="text-amber-500 text-2xl">★</span> Спецкурсы
                   </h3>
-                  <p className="text-slate-300 mb-4 text-sm">Дополнительные предметы для желающих:</p>
-                  <ul className="space-y-2 text-sm text-slate-200">
-                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5"></div>Отдельные разделы догматики</li>
-                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5"></div>Для руководителей малых групп</li>
-                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5"></div>Для ведущих разборы Писания</li>
+                  <p className="text-slate-300 mb-4 text-base">Дополнительные предметы для желающих:</p>
+                  <ul className="space-y-2 text-base text-slate-200">
+                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2"></div>Отдельные разделы догматики</li>
+                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2"></div>Для руководителей малых групп</li>
+                    <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2"></div>Для ведущих разборы Писания</li>
                   </ul>
                </div>
             </div>
@@ -107,21 +107,21 @@ const Applicants = () => {
                        <Monitor className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Онлайн-занятия (Live)</p>
-                         <p className="text-sm text-slate-600">Каждый вторник 20:30 - 23:30. Живое общение с преподавателем.</p>
+                         <p className="text-base text-slate-600">Каждый вторник 20:30 - 23:30. Живое общение с преподавателем.</p>
                        </div>
                     </div>
                     <div className="flex gap-3">
                        <Clock className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Нагрузка ~6-7 часов/нед.</p>
-                         <p className="text-sm text-slate-600">Лекции (3ч) + Домашняя работа (4ч).</p>
+                         <p className="text-base text-slate-600">Лекции (3ч) + Домашняя работа (4ч).</p>
                        </div>
                     </div>
                     <div className="flex gap-3">
                        <FileText className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Курсовые и Диплом</p>
-                         <p className="text-sm text-slate-600">Написание проектов и защита дипломной работы.</p>
+                         <p className="text-base text-slate-600">Написание проектов и защита дипломной работы.</p>
                        </div>
                     </div>
                  </div>
@@ -145,21 +145,21 @@ const Applicants = () => {
                        <Monitor className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Только в записи</p>
-                         <p className="text-sm text-slate-600">Без присутствия на онлайн-уроках. Свободное время просмотра.</p>
+                         <p className="text-base text-slate-600">Без присутствия на онлайн-уроках. Свободное время просмотра.</p>
                        </div>
                     </div>
                     <div className="flex gap-3">
                        <Clock className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Облегченная программа</p>
-                         <p className="text-sm text-slate-600">Без домашних заданий и курсовых.</p>
+                         <p className="text-base text-slate-600">Без домашних заданий и курсовых.</p>
                        </div>
                     </div>
                     <div className="flex gap-3">
                        <FileText className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1" />
                        <div>
                          <p className="font-bold text-slate-800">Тесты и Сертификат</p>
-                         <p className="text-sm text-slate-600">Сдача тестов в конце курса. Сертификат слушателя.</p>
+                         <p className="text-base text-slate-600">Сдача тестов в конце курса. Сертификат слушателя.</p>
                        </div>
                     </div>
                  </div>
@@ -198,13 +198,13 @@ const Applicants = () => {
                         
                         <div className="mb-6">
                            <span className="font-bold text-slate-900 block mb-1">Для Слушателя:</span>
-                           <p className="text-sm text-slate-600">Достаточно просто заполнить анкету на сайте.</p>
+                           <p className="text-base text-slate-600">Достаточно просто заполнить анкету на сайте.</p>
                         </div>
 
                         <div>
                            <span className="font-bold text-slate-900 block mb-1">Для Студента:</span>
-                           <p className="text-sm text-slate-600 mb-3">Заполнить анкету + Написать эссе по книге из списка.</p>
-                           <div className="text-xs text-slate-500 bg-white p-3 rounded-lg border border-slate-200 italic">
+                           <p className="text-base text-slate-600 mb-3">Заполнить анкету + Написать эссе по книге из списка.</p>
+                           <div className="text-base text-slate-500 bg-white p-3 rounded-lg border border-slate-200 italic">
                              В эссе нужно отразить: впечатление о книге, извлеченные уроки, пользу и аргументированное несогласие (если есть).
                            </div>
                         </div>

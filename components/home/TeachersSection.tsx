@@ -111,7 +111,7 @@ const TeachersSection = () => {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-          <p className="text-white text-sm font-medium">{teacher.role}</p>
+          <p className="text-white text-base font-medium">{teacher.role}</p>
         </div>
       </div>
       <div className="p-6 flex-grow flex flex-col gap-4">
@@ -125,7 +125,7 @@ const TeachersSection = () => {
             <div className="mt-1 w-5 h-5 rounded-full bg-slate-50 text-slate-500 group-hover:text-brand flex items-center justify-center shrink-0 transition-colors">
               <BookOpen className="w-3 h-3" />
             </div>
-            <p className="text-sm text-slate-700 leading-snug">
+            <p className="text-base text-slate-700 leading-snug">
               <span className="font-bold block text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Предмет</span>
               {teacher.subjects}
             </p>
@@ -135,7 +135,7 @@ const TeachersSection = () => {
             <div className="mt-1 w-5 h-5 rounded-full bg-slate-50 text-slate-500 group-hover:text-brand flex items-center justify-center shrink-0 transition-colors">
               <Church className="w-3 h-3" />
             </div>
-            <p className="text-sm text-slate-700 leading-snug">
+            <p className="text-base text-slate-700 leading-snug">
               <span className="font-bold block text-[10px] text-slate-400 uppercase tracking-widest mb-0.5">Служение</span>
               {teacher.location}
             </p>

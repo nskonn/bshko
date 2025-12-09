@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomeNavbar from '../components/home/HomeNavbar';
 import HomeFooter from '../components/home/HomeFooter';
 import RegistrationModal from '../components/RegistrationModal';
@@ -16,6 +16,63 @@ const PreachersClub = () => {
     "Клуб Проповедников помог мне лучше осмысливать мои проповеди. Мы делимся ими онлайн в аудио и текстовом формате, и братья дают нам полезные советы. Каждый из них имеет свой уникальный подход, и их обратная связь помогает мне увидеть, что можно улучшить. Благодаря их поддержке, я стал внимательнее относиться к деталям и серьёзнее готовиться к проповедям.",
     "Очень интересная и полезная рубрика: «клуб проповедников.» Помогает пересмотреть и ещё раз осмыслить мной сказанную проповедь. Важно то, что братья преподаватели подсказывают и корректируют твой взгляд на твою «идеальную» проповедь. Очень хорошо учит смирению и помогает в работе над ошибками."
   ];
+
+  // Infinite Slider Logic
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const extendedTestimonials = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
+
+  const handleNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) return;
+    const timeout = setTimeout(() => {
+      setIsTransitioning(false);
+      if (currentIndex === 0) {
+        setCurrentIndex(testimonials.length);
+      } else if (currentIndex === extendedTestimonials.length - 1) {
+        setCurrentIndex(1);
+      }
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [currentIndex, isTransitioning, testimonials.length, extendedTestimonials.length]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    if (distance > minSwipeDistance) handleNext();
+    else if (distance < -minSwipeDistance) handlePrev();
+  };
+
+  // Helper to determine active dot index
+  const getVisibleIndex = (index: number, total: number) => {
+    if (index === 0) return total - 1;
+    if (index === total + 1) return 0;
+    return index - 1;
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
@@ -77,7 +134,7 @@ const PreachersClub = () => {
                          <MessageCircle className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Честный разбор ошибок для вашего роста.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Честный разбор ошибок для вашего роста.</p>
                 </div>
                 
                 {/* Item 2 */}
@@ -88,7 +145,7 @@ const PreachersClub = () => {
                          <HeartHandshake className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Ободрение и молитва друг за друга.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Ободрение и молитва друг за друга.</p>
                 </div>
 
                 {/* Item 3 (New) */}
@@ -99,7 +156,7 @@ const PreachersClub = () => {
                          <BookOpen className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Проверка точности толкования Писания.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Проверка точности толкования Писания.</p>
                 </div>
 
                 {/* Item 4 (New) */}
@@ -110,7 +167,7 @@ const PreachersClub = () => {
                          <Lightbulb className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Рекомендации от опытных служителей.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Рекомендации от опытных служителей.</p>
                 </div>
              </div>
 
@@ -136,7 +193,7 @@ const PreachersClub = () => {
                 <p className="text-slate-400 mb-8 leading-relaxed flex-grow">
                    Записи встреч Клуба проповедников и Книжного клуба собираются в отдельных плейлистах, их можно позже просмотреть в любое удобное время.
                 </p>
-                <div className="flex items-center gap-2 text-amber-500 font-bold text-sm uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-amber-500 font-bold text-base uppercase tracking-wider">
                    Доступно студентам <ArrowRight className="w-4 h-4" />
                 </div>
              </div>
@@ -153,7 +210,7 @@ const PreachersClub = () => {
                 <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
                    Мы не забываем и о выпускниках нашей школы. Для них регулярно проводятся онлайн-встречи, где Денис Самарин читает лекцию, а после этого проходит обсуждение и общение.
                 </p>
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-slate-900 font-bold text-base uppercase tracking-wider">
                    Постоянное развитие <ArrowRight className="w-4 h-4" />
                 </div>
              </div>
@@ -167,7 +224,43 @@ const PreachersClub = () => {
          
          <div className="container mx-auto px-4 md:px-8 relative z-10">
              <h2 className="text-3xl font-bold text-slate-900 font-heading mb-12 text-center">Отзывы участников</h2>
-             <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+             
+             {/* Mobile Infinite Slider */}
+             <div className="md:hidden relative group mb-8">
+                <div className="overflow-hidden -mx-4 mb-6">
+                    <div 
+                        className={`flex ${isTransitioning ? 'transition-transform duration-300 ease-out' : ''}`}
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                    >
+                        {extendedTestimonials.map((text, index) => (
+                            <div key={index} className="min-w-full px-4">
+                                <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm h-full">
+                                    <Quote className="w-8 h-8 text-amber-200 mb-4 transform -scale-x-100" />
+                                    <p className="text-slate-700 leading-relaxed italic text-base">
+                                      {text}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-2">
+                  {testimonials.map((_, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${getVisibleIndex(currentIndex, testimonials.length) === idx ? 'bg-amber-500' : 'bg-slate-300'}`}
+                    />
+                  ))}
+                </div>
+             </div>
+
+             {/* Desktop Grid */}
+             <div className="hidden md:block columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                 {testimonials.map((text, idx) => (
                    <div key={idx} className="break-inside-avoid bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
                       <Quote className="w-8 h-8 text-amber-200 mb-4 transform -scale-x-100" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomeNavbar from '../components/home/HomeNavbar';
 import HomeFooter from '../components/home/HomeFooter';
 import RegistrationModal from '../components/RegistrationModal';
@@ -18,6 +18,63 @@ const BookClub = () => {
     "Для меня книжный клуб — один из лучших видов для подбора книг по чтению. Братья кто проводит, порой так расскажут и преподнесут, что прямо очень тянет самому «вкусить» и погрузиться в какую либо рекомендованную книгу. Так что, если вы ищете грамотный подбор литературы, интересной и разносторонней, которая бы благотворно влияла на нашу душу, то вам сюда!",
     "Книжный клуб очень хорошо дополняет обучение, вносит разнообразие. Он не только помогает пополнять домашнюю библиотеку качественной литературой, но и помогает приобретать ключи для эффективного прочтения сложных книг. В братских рассуждениях дополняются то, что я сам не увидел при прочтении в одиночку. Также важно, что оговаривается конфессиональный взгляд автора книги и возможные разногласия."
   ];
+
+  // Infinite Slider Logic
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const extendedTestimonials = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
+
+  const handleNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) return;
+    const timeout = setTimeout(() => {
+      setIsTransitioning(false);
+      if (currentIndex === 0) {
+        setCurrentIndex(testimonials.length);
+      } else if (currentIndex === extendedTestimonials.length - 1) {
+        setCurrentIndex(1);
+      }
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [currentIndex, isTransitioning, testimonials.length, extendedTestimonials.length]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    if (distance > minSwipeDistance) handleNext();
+    else if (distance < -minSwipeDistance) handlePrev();
+  };
+
+  // Helper to determine active dot index
+  const getVisibleIndex = (index: number, total: number) => {
+    if (index === 0) return total - 1;
+    if (index === total + 1) return 0;
+    return index - 1;
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
@@ -77,7 +134,7 @@ const BookClub = () => {
                          <Mic2 className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Спикеры готовят глубокий анализ книги, часто с визуальной презентацией.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Спикеры готовят глубокий анализ книги, часто с визуальной презентацией.</p>
                 </div>
 
                 <div className="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group h-full mt-0 sm:mt-8">
@@ -87,7 +144,7 @@ const BookClub = () => {
                          <Users className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">После доклада мы обсуждаем прочитанное, делимся мнениями и инсайтами.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">После доклада мы обсуждаем прочитанное, делимся мнениями и инсайтами.</p>
                 </div>
 
                 <div className="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group h-full">
@@ -97,7 +154,7 @@ const BookClub = () => {
                          <Library className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Помогаем ориентироваться в мире христианской и классической литературы.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Помогаем ориентироваться в мире христианской и классической литературы.</p>
                 </div>
 
                 <div className="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group h-full mt-0 sm:mt-8">
@@ -107,7 +164,7 @@ const BookClub = () => {
                          <Coffee className="w-6 h-6 stroke-[1.5]" />
                       </div>
                    </div>
-                   <p className="text-slate-600 text-sm leading-relaxed">Сообщество думающих людей, стремящихся к развитию и познанию.</p>
+                   <p className="text-slate-600 text-base leading-relaxed">Сообщество думающих людей, стремящихся к развитию и познанию.</p>
                 </div>
              </div>
           </div>
@@ -122,11 +179,46 @@ const BookClub = () => {
                 <p className="text-slate-500 max-w-2xl mx-auto">Что говорят студенты о влиянии Книжного клуба на их жизнь и служение.</p>
              </div>
              
-             <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+             {/* Mobile Infinite Slider */}
+             <div className="md:hidden relative group mb-8">
+                <div className="overflow-hidden -mx-4 mb-6">
+                    <div 
+                        className={`flex ${isTransitioning ? 'transition-transform duration-300 ease-out' : ''}`}
+                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                    >
+                        {extendedTestimonials.map((text, index) => (
+                            <div key={index} className="min-w-full px-4">
+                                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 h-full">
+                                    <Quote className="w-8 h-8 text-amber-200 mb-4 transform -scale-x-100" />
+                                    <p className="text-slate-700 leading-relaxed text-base">
+                                      {text}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-2">
+                  {testimonials.map((_, idx) => (
+                    <div 
+                      key={idx} 
+                      className={`w-2 h-2 rounded-full transition-colors duration-300 ${getVisibleIndex(currentIndex, testimonials.length) === idx ? 'bg-amber-500' : 'bg-slate-300'}`}
+                    />
+                  ))}
+                </div>
+             </div>
+
+             {/* Desktop Grid */}
+             <div className="hidden md:block columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                 {testimonials.map((text, idx) => (
                    <div key={idx} className="break-inside-avoid bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg transition-all relative group">
                       <Quote className="w-8 h-8 text-amber-200 mb-4 transform -scale-x-100 group-hover:text-amber-300 transition-colors" />
-                      <p className="text-slate-700 leading-relaxed text-sm md:text-base">
+                      <p className="text-slate-700 leading-relaxed text-base">
                         {text}
                       </p>
                    </div>

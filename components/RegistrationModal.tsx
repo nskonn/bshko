@@ -1,5 +1,75 @@
-import React, { useEffect } from 'react';
-import { X, User, Phone, Mail, ChevronRight, Send } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, User, Phone, Mail, ChevronDown, Send } from 'lucide-react';
+
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface CustomSelectProps {
+  label?: string;
+  options: Option[];
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+}
+
+const CustomSelect: React.FC<CustomSelectProps> = ({ label, options, value, onChange, placeholder }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find((opt) => opt.value === value);
+
+  return (
+    <div className="relative w-full" ref={containerRef}>
+      {label && <label className="block text-base font-bold text-slate-700 mb-2">{label}</label>}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full bg-slate-50 border rounded-xl px-5 py-4 flex items-center justify-between transition-all font-medium text-base outline-none text-left ${
+          isOpen ? 'border-blue-500 ring-2 ring-blue-500/20' : 'border-slate-200 hover:border-slate-300'
+        }`}
+      >
+        <span className={selectedOption ? 'text-slate-800' : 'text-slate-400'}>
+          {selectedOption ? selectedOption.label : placeholder}
+        </span>
+        <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-full left-0 w-full mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 overflow-hidden max-h-64 overflow-y-auto animate-in fade-in zoom-in-95 duration-150">
+          {options.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              onClick={() => {
+                onChange(option.value);
+                setIsOpen(false);
+              }}
+              className={`w-full text-left px-5 py-3 text-base font-medium transition-colors ${
+                option.value === value
+                  ? 'bg-blue-50 text-blue-600'
+                  : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 interface RegistrationModalProps {
   isOpen: boolean;
@@ -7,6 +77,22 @@ interface RegistrationModalProps {
 }
 
 const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }) => {
+  const [role, setRole] = useState("Студент (Полный курс)");
+  const [channel, setChannel] = useState("");
+
+  const roleOptions = [
+    { label: "Студент (Полный курс)", value: "Студент (Полный курс)" },
+    { label: "Вольнослушатель", value: "Вольнослушатель" },
+    { label: "Кандидат в Клуб проповедников", value: "Кандидат в Клуб проповедников" }
+  ];
+
+  const channelOptions = [
+    { label: "Telegram", value: "Telegram" },
+    { label: "WhatsApp", value: "WhatsApp" },
+    { label: "Email", value: "Email" },
+    { label: "Телефон", value: "Телефон" }
+  ];
+
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -20,6 +106,16 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+      <style dangerouslySetInnerHTML={{__html: `
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+      `}} />
+
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
@@ -27,7 +123,7 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
       ></div>
 
       {/* Modal Content */}
-      <div className="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-hide shadow-2xl animate-in fade-in zoom-in-95 duration-200">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-all z-10"
@@ -43,19 +139,14 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
             </p>
           </div>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
             {/* Course Selection */}
-            <div>
-              <label className="block text-base font-bold text-slate-700 mb-2">В каком качестве вы будете поступать?</label>
-              <div className="relative">
-                <select defaultValue="Студент (Полный курс)" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-base">
-                  <option>Студент (Полный курс)</option>
-                  <option>Вольнослушатель</option>
-                  <option>Кандидат в Клуб проповедников</option>
-                </select>
-                <ChevronRight className="w-5 h-5 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 rotate-90 pointer-events-none" />
-              </div>
-            </div>
+            <CustomSelect 
+                label="В каком качестве вы будете поступать?" 
+                options={roleOptions} 
+                value={role} 
+                onChange={setRole} 
+            />
 
             {/* Name Fields */}
             <div className="space-y-4">
@@ -89,22 +180,18 @@ const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, onClose }
 
             {/* Connection Channel & Note */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="relative">
-                <select defaultValue="" className="w-full appearance-none bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-medium text-base">
-                  <option value="" disabled>Канал связи *</option>
-                  <option>Telegram</option>
-                  <option>WhatsApp</option>
-                  <option>Email</option>
-                  <option>Телефон</option>
-                </select>
-                <ChevronRight className="w-5 h-5 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 rotate-90 pointer-events-none" />
-              </div>
+                <CustomSelect 
+                    options={channelOptions} 
+                    value={channel} 
+                    onChange={setChannel} 
+                    placeholder="Канал связи *"
+                />
               <input type="text" placeholder="Примечание (по желанию)" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
             </div>
 
             {/* Info Block */}
             <div className="bg-blue-50/70 rounded-xl p-5 border border-blue-100 flex gap-4 items-start">
-              <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">i</div>
+              <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold text-base">i</div>
               <p className="text-base text-slate-600 leading-relaxed">
                 После отправки анкеты вы будете переадресованы на наш Telegram канал. Подпишитесь, чтобы быть в курсе всех событий!
               </p>

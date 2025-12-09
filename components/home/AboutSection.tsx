@@ -54,7 +54,7 @@ const AboutSection = () => {
             
             {/* Mission Block */}
             <div className="mt-auto pt-8 border-t border-slate-100">
-               <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-3">Наша миссия</h4>
+               <h4 className="text-base font-bold text-slate-900 uppercase tracking-wide mb-3">Наша миссия</h4>
                <p className="text-slate-800 italic font-medium text-lg leading-relaxed border-l-2 border-brand pl-4">
                  "Помочь проповедникам освоить необходимые навыки для того, чтобы верно и дерзновенно проповедовать Слово Божье."
                </p>
@@ -75,7 +75,7 @@ const AboutSection = () => {
                          {React.cloneElement(feature.icon as React.ReactElement<any>, { className: "w-8 h-8 stroke-[1.5]" })}
                        </div>
                     </div>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-base leading-relaxed">
                       {feature.desc}
                     </p>
                 </div>

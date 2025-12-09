@@ -84,8 +84,8 @@ const AdmissionInfoSection = () => {
                 <div className={`bg-slate-50/50 rounded-xl p-5 border border-slate-100 mt-auto transition-colors`}>
                    <ul className="space-y-3">
                     {card.listItems.map((item, i) => (
-                      <li key={i} className="flex items-start text-sm font-medium text-slate-700">
-                        <Check className={`w-4 h-4 mr-3 flex-shrink-0 mt-0.5 text-brand`} />
+                      <li key={i} className="flex items-start text-base font-medium text-slate-700">
+                        <Check className={`w-4 h-4 mr-3 flex-shrink-0 mt-1 text-brand`} />
                         <span className="leading-snug">{item}</span>
                       </li>
                     ))}

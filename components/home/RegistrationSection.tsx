@@ -115,7 +115,7 @@ const RegistrationSection = () => {
               <p className="text-slate-400 text-base leading-relaxed mb-6">
                 Библейская школа — это место, где вы сможете углубить свои знания Писания и найти призвание.
               </p>
-              <div className="flex items-center gap-4 text-sm font-medium text-slate-500">
+              <div className="flex items-center gap-4 text-base font-medium text-slate-500">
                 <div className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4 text-brand" />
                   <span>Онлайн формат</span>
@@ -185,7 +185,7 @@ const RegistrationSection = () => {
                 <input type="text" placeholder="Примечание (по желанию)" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-all placeholder:text-slate-400 font-medium text-slate-800 text-base" />
               </div>
 
-              <div className="bg-slate-50 rounded-xl p-4 text-sm text-slate-500 border border-slate-100 flex gap-3 items-start">
+              <div className="bg-slate-50 rounded-xl p-4 text-base text-slate-500 border border-slate-100 flex gap-3 items-start">
                 <div className="w-5 h-5 rounded-full bg-brand/10 text-brand flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">i</div>
                 <p>После отправки анкеты вы будете переадресованы на наш Telegram канал. Подпишитесь, чтобы быть в курсе всех событий!</p>
               </div>

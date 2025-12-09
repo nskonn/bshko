@@ -35,7 +35,6 @@ const HomeFooter = () => {
             <ul className="space-y-4 text-base">
               <li><Link to="/book-club" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Книжный клуб</Link></li>
               <li><Link to="/preachers-club" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Клуб проповедников</Link></li>
-              <li><a href="#" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Библиотека</a></li>
               <li><Link to="/blog" className="hover:text-amber-500 transition-colors flex items-center gap-2"><ChevronRight className="w-3 h-3 text-amber-500" /> Блог</Link></li>
             </ul>
           </div>
@@ -54,7 +53,7 @@ const HomeFooter = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-600 mt-16 pt-8 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center text-slate-600">
+        <div className="border-t border-slate-600 mt-16 pt-8 text-base text-center md:text-left flex flex-col md:flex-row justify-between items-center text-slate-600">
           <p>&copy; 2024 БШКО. Все права защищены.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>

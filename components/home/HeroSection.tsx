@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -38,9 +39,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenModal }) => {
                 Начать обучение
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg transition-all font-heading">
-                Абитуренту
-              </button>
+              <Link 
+                to="/applicants" 
+                className="bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg transition-all font-heading flex items-center justify-center text-center"
+              >
+                Абитуриенту
+              </Link>
             </div>
           </div>
         </div>
